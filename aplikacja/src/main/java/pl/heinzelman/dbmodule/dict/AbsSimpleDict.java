@@ -20,7 +20,7 @@ public class AbsSimpleDict implements Serializable {
     @Column( name = "id" )
     protected Long id;
 
-    @Column ( name = "name" , unique = true )
+    @Column ( name = "name" )
     protected String name;
 
 

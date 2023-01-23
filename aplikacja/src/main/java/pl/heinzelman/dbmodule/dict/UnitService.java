@@ -7,6 +7,5 @@ import org.springframework.stereotype.Service;
 public class UnitService extends AbsSimpleDictService<Unit, UnitRepo> {
 
     @Autowired UnitRepo repo;
-
     public UnitService(UnitRepo repo) { super(repo); }
 }

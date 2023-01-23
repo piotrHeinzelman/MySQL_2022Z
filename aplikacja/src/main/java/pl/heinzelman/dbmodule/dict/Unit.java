@@ -32,10 +32,11 @@ public class Unit extends AbsSimpleDict {
     private String separator;
 
     public Unit() {}
-    public Unit( Long idUnitType, String suffix, Double multi ) {
+
+    public Unit(String name, Long idUnitType, String suffix, Double multi) {
+        super(name);
         this.idUnitType = idUnitType;
         this.suffix = suffix;
         this.multi = multi;
     }
-
 }

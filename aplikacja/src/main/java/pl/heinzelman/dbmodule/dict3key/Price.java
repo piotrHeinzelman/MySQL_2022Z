@@ -14,10 +14,6 @@ import java.io.Serializable;
 @IdClass( Key3CodeLangIssue.class )
 public class Price {
 
-
-    @Inheritance( strategy = InheritanceType.TABLE_PER_CLASS )
-    public class AbsDoubleDict implements Serializable {
-
         @Column(name = "id")
         @Id
         protected Long id;
@@ -36,15 +32,13 @@ public class Price {
         @Column(name = "promo")
         protected Double promo;
 
-        public AbsDoubleDict() { }
+        public Price() {}
 
-        public AbsDoubleDict(Long id, Long id_lang, Long id_issue, Double price, Double promo) {
-            this.id = id;
-            this.id_lang = id_lang;
-            this.id_issue = id_issue;
-            this.price = price;
-            this.promo = promo;
-        }
+    public Price(Long id, Lang lng, Long id_issue, Double price, Double promo) {
+        this.id = id;
+        this.id_lang = lng.getID_lang();
+        this.id_issue = id_issue;
+        this.price = price;
+        this.promo = promo;
     }
-
 }

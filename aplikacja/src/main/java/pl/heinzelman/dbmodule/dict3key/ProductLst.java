@@ -24,7 +24,7 @@ public class ProductLst {
      @Id private Long id_issue;
 
      @Column(name = "page_num")
-     @Id Long pageNum;
+     Long pageNum;
 
      @Column(name = "my_order")
      private Long MyOrder;

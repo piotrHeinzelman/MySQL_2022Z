@@ -55,8 +55,8 @@ public class IndexController {
         unitService.save( new Unit( "kilowat" , mocID, "kW" ,  1000.0 ));
 
         // JEDNOSTKI WIELOKROTNE
-            UnitType polePowierzchni = new UnitType("polePowierzchni");
-            unitTypeService.save( polePowierzchni );
+        UnitType polePowierzchni = new UnitType("polePowierzchni");
+        unitTypeService.save( polePowierzchni );
 
             Unit dl_x_szer = new Unit( "metr kwadrat",  dlugID , "m2", 1.0 );
               dl_x_szer.setSeparator("x");

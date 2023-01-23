@@ -63,8 +63,7 @@ public class Icon extends AbsSimpleDict {
     private Boolean inInstrukcja;
 
     public Icon() {}
-    public Icon(String name, Long idUnitType, Long idIconFamily) {
-        super(name);
+    public Icon(Long idUnitType, Long idIconFamily) {
         this.idUnitType = idUnitType;
         this.idIconFamily = idIconFamily;
     }
