@@ -4,6 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.heinzelman.dbmodule.dict.*;
+import pl.heinzelman.dbmodule.dict2Key.IconName;
+import pl.heinzelman.dbmodule.dict2Key.IconNameService;
+
+import static pl.heinzelman.dbmodule.keyLogic.Lang.*;
 
 
 @Controller
@@ -14,15 +18,16 @@ public class IndexController {
     @Autowired private final InddMasterService inddMasService;
     @Autowired private final IconService iconS;
     @Autowired private final IconFamilyService iconFamilyS;
-    //@Autowired private final IconNameS iconNameS;
+    @Autowired private final IconNameService iconNameService;
 
 
-    public IndexController(UnitService unitService, UnitTypeService unitTypeService, InddMasterService inddMasService, IconService iconS, IconFamilyService iconFamilyS) {
+    public IndexController(UnitService unitService, UnitTypeService unitTypeService, InddMasterService inddMasService, IconService iconS, IconFamilyService iconFamilyS, IconNameService iconNameService) {
         this.unitService = unitService;
         this.unitTypeService = unitTypeService;
         this.inddMasService = inddMasService;
         this.iconS = iconS;
         this.iconFamilyS = iconFamilyS;
+        this.iconNameService = iconNameService;
     }
 
     @RequestMapping("/index")
@@ -79,9 +84,9 @@ public class IndexController {
         szerKoszenia.setInPaper( true );
         iconS.save( szerKoszenia );
 
-        Long LangPL=1L; Long LangEN=3L;
-//        iconNameS.save( new IconName( szerKoszenia.getID_icon() , LangPL , "szerokość koszenia" ) );
-//        iconNameS.save( new IconName( szerKoszenia.getID_icon() , LangEN , "cutting width" ) );
+
+        iconNameService.save( new IconName( szerKoszenia.getId() , PL , "szerokość koszenia" ) );
+        iconNameService.save( new IconName( szerKoszenia.getId() , EN , "cutting width" ) );
 
         return "index";
     }
