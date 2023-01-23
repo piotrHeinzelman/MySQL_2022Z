@@ -13,6 +13,7 @@ public class CodeService implements CodeRepo {
 
     public CodeService(CodeRepo codeRepo) { this.codeRepo = codeRepo; }
 
+
     @Override
     public <S extends Code> S save(S entity) {
         return codeRepo.save( entity );
@@ -49,27 +50,24 @@ public class CodeService implements CodeRepo {
     }
 
     @Override
-    public void deleteById( Long aLong ) {
+    public Optional<Code> findByCodeString( String codeString ) {
+        if ( codeString==null || codeString.trim().length()==0 ) throw new RuntimeException("pusty kod!");
+        return codeRepo.findByCodeString( codeString );
+    }
+
+    @Override public void deleteById(Long aLong ) {
         codeRepo.deleteById( aLong );
     }
-
-    @Override
-    public void delete( Code entity ) {
+    @Override public void delete( Code entity ) {
         codeRepo.delete( entity );
     }
-
-    @Override
-    public void deleteAllById(Iterable<? extends Long> longs) {
+    @Override public void deleteAllById(Iterable<? extends Long> longs) {
         codeRepo.deleteAllById( longs );
     }
-
-    @Override
-    public void deleteAll(Iterable<? extends Code> entities) {
+    @Override public void deleteAll(Iterable<? extends Code> entities) {
         codeRepo.deleteAll( entities );
     }
-
-    @Override
-    public void deleteAll() {
+    @Override public void deleteAll() {
         codeRepo.deleteAll();
     }
 }

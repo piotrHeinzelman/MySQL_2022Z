@@ -23,14 +23,12 @@ public class AbsSimpleDict implements Serializable {
     @Column ( name = "name" , unique = true )
     protected String name;
 
-    @Column ( name = "active")
-    protected Boolean active;
 
     @Transient protected  Map<String, Method> _getters;
     @Transient protected  Map<String, Method> _setters;
 
-    public AbsSimpleDict () { this.active = true; }
-    public AbsSimpleDict ( String name ) { this.setName( name ); this.active = true; }
+    public AbsSimpleDict () {}
+    public AbsSimpleDict ( String name ) { this.setName( name ); }
     public void setName  ( String name ) { if ( name!=null ) { this.name = name.trim(); }  this.name = name; }
 
 

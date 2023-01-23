@@ -11,14 +11,14 @@ public abstract class AbsDoubleDictService<T extends AbsDoubleDict, R extends Ab
     }
     public <S extends T> S save(S entity) { return repo.save(entity); }
     public <S extends T> Iterable<S> saveAll(Iterable<S> entities) { return repo.saveAll(entities); }
-    public Optional<T> findById(IdLang idLang) { return repo.findById(idLang); }
-    public boolean existsById(IdLang idLang) { return repo.existsById(idLang); }
+    public Optional<T> findById(Key2CodeLang idLang) { return repo.findById(idLang); }
+    public boolean existsById(Key2CodeLang idLang) { return repo.existsById(idLang); }
     public Iterable<T> findAll() { return repo.findAll(); }
-    public Iterable<T> findAllById(Iterable<IdLang> idLangs) { return repo.findAllById(idLangs); }
+    public Iterable<T> findAllById(Iterable<Key2CodeLang> idLangs) { return repo.findAllById(idLangs); }
     public long count() { return repo.count(); }
-    public void deleteById(IdLang idLang) { repo.deleteById(idLang); }
+    public void deleteById(Key2CodeLang idLang) { repo.deleteById(idLang); }
     public void delete(T entity) { repo.delete(entity); }
-    public void deleteAllById(Iterable<? extends IdLang> idLangs) { repo.deleteAllById(idLangs); }
+    public void deleteAllById(Iterable<? extends Key2CodeLang> idLangs) { repo.deleteAllById(idLangs); }
     public void deleteAll(Iterable<? extends T> entities) { repo.deleteAll(entities); }
     public void deleteAll() { repo.deleteAll(); }
 }

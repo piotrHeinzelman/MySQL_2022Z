@@ -12,51 +12,19 @@ public abstract class AbsSimpleDictService<T extends AbsSimpleDict, R extends Ab
         this.repo = repo;
     }
 
-     public Iterable<T> findAll           () {
-                     return repo.findAllByActiveTrue  ();}
+    public Optional<T> findById(Long aLong) { return repo.findById(aLong); }
 
-     public Iterable<T> findAllByActiveTrue  () {
-                     return repo.findAllByActiveTrue  (); }
+    public boolean existsById(Long aLong) { return repo.existsById(aLong); }
 
+    public Iterable<T> findAll() { return repo.findAll(); }
 
+    public long count() { return repo.count(); }
 
-     public Optional<T> findById           (Long aLong) {
-                     return repo.findAllByIdAndActiveTrue ( aLong );   }
+    public <S extends T> S save(S entity) { return repo.save( entity ); }
 
-    public Optional<T> findAllByIdAndActiveTrue (Long aLong) {
-                      return repo.findAllByIdAndActiveTrue (aLong); }
+    public Optional<T> findAllByName(String name) { return repo.findAllByName(name); }
 
-
-
-    public Optional<T> findAllByName              ( String name ) {
-                     return repo.findAllByNameAndActiveTrue ( name );          }
-
-    public Optional<T> findAllByNameAndActiveTrue (String name) {
-                     return repo.findAllByNameAndActiveTrue (name); }
-
-
-
-    public boolean existsById            ( Long aLong ) {
-                     return repo.existsByIdAndActiveTrue  ( aLong ); }
-
-    public boolean     existsByIdAndActiveTrue  ( Long aLong ) {
-                     return repo.existsByIdAndActiveTrue  ( aLong ); }
-
-    public boolean    existsByNameAndActiveTrue ( String name) {
-                     return repo.existsByNameAndActiveTrue ( name); }
-
-
-    public long count() {
-              return repo.countAllByActiveTrue(); }
-
-     public long countAllByActiveTrue() {
-              return repo.countAllByActiveTrue(); }
-
-
-     public <S extends T> S save(S entity) { return repo.save( entity ); }
-
-
-     public <S extends T> Iterable<S> saveAll(Iterable<S> entities) { return repo.saveAll( entities ); }
+    public <S extends T> Iterable<S> saveAll(Iterable<S> entities) { return repo.saveAll( entities ); }
      public Iterable<T> findAllById(Iterable<Long> longs) { return repo.findAllById( longs ); }
      public void deleteById(Long aLong) { repo.deleteById( aLong ); }
      public void delete(T entity) { repo.delete( entity ); }

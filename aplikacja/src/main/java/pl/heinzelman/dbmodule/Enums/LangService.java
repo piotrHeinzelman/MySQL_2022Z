@@ -1,7 +1,8 @@
-package pl.heinzelman.dbmodule.keyLogic;
+package pl.heinzelman.dbmodule.Enums;
 
 
 import org.springframework.stereotype.Service;
+import pl.heinzelman.dbmodule.Enums.Lang;
 
 import java.util.List;
 import java.util.Optional;

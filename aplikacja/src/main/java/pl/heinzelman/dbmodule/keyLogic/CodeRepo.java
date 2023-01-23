@@ -10,6 +10,23 @@ import java.util.Optional;
 
 @Repository
 public interface CodeRepo extends CrudRepository<Code, Long> {
+
+    Optional<Code> findByCodeString ( String codeString );
+
+//     Iterable<T> findAllByActiveTrue();
+
+//            long count();
+//            long countAllByActiveTrue();
+
+
+//    Optional<T> findAllByName( String name );
+//    Optional<T> findAllByNameAndActiveTrue( String name );
+//    Optional<T> findAllByIdAndActiveTrue( Long aLong );
+
+//    boolean existsByIdAndActiveTrue( Long aLong );
+//    boolean existsByNameAndActiveTrue( String name );
+
+
 /*
     Optional<Code> findByCodeString ( String codeString );
 
@@ -52,4 +69,10 @@ public interface CodeRepo extends CrudRepository<Code, Long> {
 
 
 */
+
+
+
+
+
+
 }

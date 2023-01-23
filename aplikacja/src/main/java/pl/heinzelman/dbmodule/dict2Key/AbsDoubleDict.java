@@ -3,17 +3,17 @@ package pl.heinzelman.dbmodule.dict2Key;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import pl.heinzelman.dbmodule.Enums.Lang;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 @Getter
 @Setter
 @MappedSuperclass
-@IdClass( IdLang.class )
+@IdClass( Key2CodeLang.class )
 @Inheritance ( strategy = InheritanceType.TABLE_PER_CLASS )
 public class AbsDoubleDict implements Serializable {
 
@@ -60,15 +60,9 @@ public class AbsDoubleDict implements Serializable {
 
 
     public AbsDoubleDict() {}
-    public AbsDoubleDict( Long id, Long id_lang ) {
+    public AbsDoubleDict( Long id, Lang lang ) {
         this.id = id;
-        this.id_lang = id_lang;
+        this.id_lang = lang.getID_lang();
     }
-    public AbsDoubleDict( IdLang idLang) {
-        this.id = idLang.getId();
-        this.id_lang =idLang.getId_lang();
-    }
-
-
 
 }

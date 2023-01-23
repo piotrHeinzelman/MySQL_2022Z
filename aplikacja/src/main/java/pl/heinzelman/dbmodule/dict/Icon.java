@@ -18,10 +18,10 @@ import java.io.Serializable;
 public class Icon extends AbsSimpleDict {
 
     @Column( name = "id_unit_type")
-    private Long ID_unitType;
+    private Long idUnitType;
 
-    @Column( name = "icon_family")
-    private Long iconFamily;
+    @Column( name = "id_icon_family")
+    private Long idIconFamily;
 
     @Column( name = "is_tech")
     private Boolean isTech;
@@ -63,9 +63,9 @@ public class Icon extends AbsSimpleDict {
     private Boolean inInstrukcja;
 
     public Icon() {}
-
-    public Icon(Long ID_unitType, Long iconFamily) {
-        this.ID_unitType = ID_unitType;
-        this.iconFamily = iconFamily;
+    public Icon(String name, Long idUnitType, Long idIconFamily) {
+        super(name);
+        this.idUnitType = idUnitType;
+        this.idIconFamily = idIconFamily;
     }
 }

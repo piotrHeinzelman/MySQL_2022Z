@@ -4,9 +4,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import pl.heinzelman.dbmodule.Enums.Lang;
+import pl.heinzelman.dbmodule.Enums.LangService;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static pl.heinzelman.dbmodule.keyLogic.Lang.PL;
+import static pl.heinzelman.dbmodule.Enums.Lang.PL;
 
 @SpringBootTest
 class LangServiceTest {

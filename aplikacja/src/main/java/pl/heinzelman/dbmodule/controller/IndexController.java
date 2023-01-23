@@ -7,7 +7,7 @@ import pl.heinzelman.dbmodule.dict.*;
 import pl.heinzelman.dbmodule.dict2Key.IconName;
 import pl.heinzelman.dbmodule.dict2Key.IconNameService;
 
-import static pl.heinzelman.dbmodule.keyLogic.Lang.*;
+import static pl.heinzelman.dbmodule.Enums.Lang.*;
 
 
 @Controller

@@ -8,13 +8,13 @@ import java.util.Objects;
 
 @Getter
 @Setter
-public class IdLang implements Serializable {
+public class Key2CodeLang implements Serializable {
 
     private Long id;
     private Long id_lang;
 
-    public IdLang() {}
-    public IdLang(Long id, Long id_lang) {
+    public Key2CodeLang() {}
+    public Key2CodeLang(Long id, Long id_lang) {
         this.id = id;
         this.id_lang = id_lang;
     }
@@ -25,7 +25,7 @@ public class IdLang implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        IdLang idLang = (IdLang) o;
+        Key2CodeLang idLang = (Key2CodeLang) o;
         return id.equals(idLang.id) && id_lang.equals(idLang.id_lang);
     }
 

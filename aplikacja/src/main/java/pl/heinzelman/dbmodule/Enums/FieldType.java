@@ -1,4 +1,4 @@
-package pl.heinzelman.dbmodule.keyLogic;
+package pl.heinzelman.dbmodule.Enums;
 
 public enum FieldType {
 

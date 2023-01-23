@@ -8,7 +8,6 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 @Entity(name = "category")
 @Table(name = "category")
 @Inheritance ( strategy = InheritanceType.TABLE_PER_CLASS )
@@ -20,7 +19,22 @@ public class Category extends AbsSimpleDict {
     @Column (name = "exact_id")
     private Long ExactId;
 
+    @Column (name = "exact_name")
+    private Long exactName;
+
     public Category() {}
     public Category( String name ) { super(name); }
 
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", _getters=" + _getters +
+                ", _setters=" + _setters +
+                ", category_parent=" + category_parent +
+                ", ExactId=" + ExactId +
+                ", exactName=" + exactName +
+                '}';
+    }
 }

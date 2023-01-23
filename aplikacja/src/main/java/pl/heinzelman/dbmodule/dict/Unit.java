@@ -6,8 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.io.Serializable;
-
 @Getter
 @Setter
 @ToString
@@ -17,14 +15,15 @@ import java.io.Serializable;
 @Inheritance ( strategy = InheritanceType.TABLE_PER_CLASS )
 public class Unit extends AbsSimpleDict {
 
-    @Column( name = "type")
-    private Long type;
+
+    @Column( name = "id_unit_type")
+    private Long idUnitType;
 
     @Column( name = "suffix")
     private String suffix;
 
     @Column( name = "multi")
-    private Double mutli = 1.0;
+    private Double multi = 1.0;
 
     @Column( name = "next_unit_id")
     private Long next_unit_ID;
@@ -33,12 +32,10 @@ public class Unit extends AbsSimpleDict {
     private String separator;
 
     public Unit() {}
-    public Unit(String name) { super(name); }
-    public Unit(String name, Long type, String suffix, Double mutli) {
-        super(name);
-        this.type = type;
+    public Unit( Long idUnitType, String suffix, Double multi ) {
+        this.idUnitType = idUnitType;
         this.suffix = suffix;
-        this.mutli = mutli;
+        this.multi = multi;
     }
 
 }

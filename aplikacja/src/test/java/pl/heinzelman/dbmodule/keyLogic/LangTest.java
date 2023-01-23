@@ -1,9 +1,9 @@
 package pl.heinzelman.dbmodule.keyLogic;
 
 import org.junit.jupiter.api.Test;
+import pl.heinzelman.dbmodule.Enums.Lang;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static pl.heinzelman.dbmodule.keyLogic.Lang.*;
+import static pl.heinzelman.dbmodule.Enums.Lang.*;
 
 class LangTest {
 

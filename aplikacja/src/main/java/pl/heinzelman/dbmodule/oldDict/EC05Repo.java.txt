@@ -1,9 +1,0 @@
-package pl.heinzelman.dbmodule.oldDict;
-
-import org.springframework.stereotype.Repository;
-
-
-@Repository
-public interface EC05Repo extends AbsSimpleDictRepo<EC05> {
-
-}
