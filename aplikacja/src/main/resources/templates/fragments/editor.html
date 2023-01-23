@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+
+
+
+
+
+
+
+<body>
+
+
+
+
+<div  th:fragment="edit_text_input (  tableName, fieldName , value , label  ) ">
+    <input type="text"
+           th:name="${'.'+tableName+'.'+fieldName+'.'+codeId+'.'+langId+'.'+issueId+'.'}"
+           th:id="${'.'+tableName+'.'+fieldName+'.'+codeId+'.'+langId+'.'+issueId+'.'}"
+           th:value="${__${value}__}" >
+</div>
+
+
+
+<div  th:fragment="edit_text_input_lang (  tableName, fieldName , value , label , lang ) ">
+    <input type="text"
+           th:name="${'.'+tableName+'.'+fieldName+'.'+codeId+'.'+lang+'.'+issueId+'.'}"
+           th:id="${'.'+tableName+'.'+fieldName+'.'+codeId+'.'+lang+'.'+issueId+'.'}"
+           th:value="${__${value}__}">
+</div>
+
+
+
+<div  th:fragment="edit_text_area (  tableName, fieldName , value , label   ) ">
+    <textarea
+           th:name="${'.'+tableName+'.'+fieldName+'.'+codeId+'.'+langId+'.'+issueId+'.'}"
+           th:id="${'.'+tableName+'.'+fieldName+'.'+codeId+'.'+langId+'.'+issueId+'.'}"
+           th:text="${__${value}__}"></textarea>
+</div>
+
+<div  th:fragment="edit_text_input_otherCodeId (  tableName, fieldName , value , label , otherCodeId ) ">
+    <input type="text"
+           th:name="${'.'+tableName+'.'+fieldName+'.'+otherCodeId+'.'+langId+'.'+issueId+'.'}"
+           th:id="${'.'+tableName+'.'+fieldName+'.'+otherCodeId+'.'+langId+'.'+issueId+'.'}"
+           th:value="${__${value}__}" style="width: 100%;">
+</div>
+
+
+
+<div  th:fragment="as_text (  tableName, fieldName , value , label   ) ">
+    <span th:text="${__${value}__}"></span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+<nobody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<th> <p> th:text="${'session.langId: '+session.langId+'${langId}: '+ langId}"></p> </th>
+<th> <p> th:text="${'session.issueId: '+session.issueId+'${issueId}: '+ issueId}"></p> </th>
+
+<label th:text="${'Język:'+langs[(langId-1)].langCode+', Wydanie:'+issues[(issueId-1)].issueName}"></label>
+
+
+<input type="text" th:name="${'.images_data.comment1.'+codeId+'.'+session.langId+'.'+session.issueId+'.'}"
+       th:id ="${'.images_data.comment1.'+codeId+'.'+session.langId+'.'+session.issueId+'.'}"
+       th:value="${images_data.getComment1()}">
+
+
+
+
+<p>
+    th:field="*{__${myVar}__}"
+    th:attr="value = ${client.name}"
+
+</p>
+
+
+
+
+
+
+</nobody>
+
+
+
+
+
+
+
+
+</html>
+

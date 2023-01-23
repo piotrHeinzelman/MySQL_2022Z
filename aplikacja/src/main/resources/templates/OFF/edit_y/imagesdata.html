@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}  )}">
+
+
+<body>
+<div>
+
+<form action="@{'/edit/imagesdata'}" th:action="@{'/edit/imagesdata'}"  method="POST" enctype="multipart/form-data">
+
+    <div  th:fragment="imagesData()">
+
+    <th:block  th:if="${imagesData!=null}">
+
+        <th:block th:include="~{fragments/editor :: edit_text_input ( 'imagesData', 'comment1' ,  'imagesData.getComment1()' ,  'komentarz'   )}" />
+        <th:block th:include="~{fragments/editor :: edit_text_input ( 'imagesData', 'comment2' ,  'imagesData.getComment2()' ,  'komentarz 2'  )}" />
+        <th:block th:include="~{fragments/editor :: edit_text_input ( 'imagesData', 'extraImages', 'imagesData.getExtraImages()','dodatkowe obrazy'  )}" />
+        <th:block th:include="~{fragments/editor :: edit_text_input ( 'imagesData', 'icons' ,     'imagesData.getIcons()' ,     'kody ikon'     )}" />
+        <th:block th:include="~{fragments/editor :: edit_text_input ( 'imagesData', 'isNew' ,     'imagesData.getIsNew()' ,     'nowość'       )}" />
+
+    </th:block>
+
+    </div>
+
+
+    <input class="submit" type="submit" value="dodaj">
+
+</form>
+
+</div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nobody>
+    <p>
+        NOBODY NOBODY NOBODY NOBODY NOBODY NOBODY NOBODY NOBODY NOBODY NOBODY NOBODY NOBODY NOBODY NOBODY NOBODY
+
+        ${'__imagesData.getComment1()__'}
+    </p>
+
+
+    <input type="text" th:name="${'.imagesData.comment1.'+codeId+'.'+session.langId+'.'+session.issueId+'.'}"
+           th:id ="${'.imagesData.comment1.'+codeId+'.'+session.langId+'.'+session.issueId+'.'}"
+           th:value="${imagesData.getComment1()}">
+
+
+    <p>
+
+
+
+
+    <p th:text="${'session.langId: '+langId}"></p>
+    <p th:text="${'session.issueId: '+issueId}"></p>
+
+
+
+    /*
+
+        th:field="*{__${myVar}__}"
+
+        @Table(name = "ImagesData")
+
+        @Column(name = "codeId")
+        @Column(name = "comment1")
+        @Column(name = "comment2")
+        @Column(name = "extraImages")
+        @Column(name = "icons")
+        @Column(name = "isNew")
+
+        */
+
+    </p>
+
+
+
+</nobody>
+
+
+</html>

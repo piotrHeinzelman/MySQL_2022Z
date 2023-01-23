@@ -1,0 +1,27 @@
+package pl.heinzelman.dbmodule.oldDict;
+/*
+import com.heinzelman.connector.databaseTools.DBTools;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+import static com.heinzelman.connector.databaseTools.DBTools.isNotEmpty;
+
+@Entity(name = "e_c05")
+@Table(name = "e_c05")
+@Getter
+@Setter
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class EC05 extends AbsSimpleDict {
+
+    public EC05() {}
+    public EC05(String myName ) {
+        super.setName( myName );
+    }
+
+    @Column(name = "id_col")
+    private Long idcol;
+
+
+}

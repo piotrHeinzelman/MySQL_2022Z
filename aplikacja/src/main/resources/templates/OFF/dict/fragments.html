@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<!-- display icons https://icons8.com/icon/set/popular/material-two-tone -->
+
+
+<body>
+<div>
+        <table>
+        <tbody>
+
+
+        <tr  th:fragment="header()" th:class="one">
+            <th> id </th>
+            <th> nazwa </th>
+            <th> opis </th>
+            <th:block th:each="method_name : ${getFields}">
+                <th th:text="${method_name.key}"> </th>
+            </th:block>
+            <th><a th:href="@{'/dict/EDIT/' + ${className} + '/0' }"><img src="/img/icons8-add-24.png"></a></th>
+        </tr>
+        <!-- /header -->
+
+
+
+        <!-- rows -->
+        <th:block th:fragment="allRow( Items  )" >
+            <th:block th:each="oneItem : ${ Items }">
+                <tr th:replace="~{dict/fragments :: elementRow( ${oneItem}  )}"></tr>
+            </th:block>
+        </th:block>
+        <!-- /rows -->
+
+
+
+
+        <!-- element row -->
+        <tr  th:fragment="elementRow( oneItem )" th:itemId="${ oneItem.getId() }" th:itemClass="${className}" th:class="'dictListRow'">
+
+            <td th:text="${oneItem.getId()}"></td>
+            <td th:text="${oneItem.getName()}"></td>
+            <td th:text="${oneItem.getDescription()}"></td>
+
+            <th:block  th:each="method : ${getFields}">
+                <td th:utext="${method.value.invoke(oneItem)}" ></td>
+            </th:block>
+
+            <td>
+                <th:block th:if="${onClick2!=null}">        &nbsp; &nbsp;
+                    <a th:href="@{''+${onClick2} + '/' + ${oneItem.getId()} }"><img src="/img/lupa18.png"></a>
+                    &nbsp; &nbsp;
+                </th:block>
+
+                <a th:href="@{'/dict/EDIT/' + ${className} + '/' + ${oneItem.getId()} }"><img src="/img/icons8-edit-24.png"></a>
+                &nbsp; &nbsp;
+                <a th:href="@{'/dict/DELETE/' + ${className} + '/' + ${oneItem.getId()} }"><img src="/img/icons8-delete-24.png"></a>
+
+
+            </td>
+        </tr>
+        <!-- element row -->
+
+        </tbody>
+        </table>
+
+        <!-- (dict) edit form  -->
+        <th:block th:fragment="elementForm( item, className, getFields )">
+            <form th:action="@{'/dict/SAVE/'+${className}}"  method="POST" enctype="multipart/form-data" th:class="'dict '+${className}">
+
+             <div>
+             <th:block  th:replace="~{dict/fragments :: edit_text_input( 'id', ${item.getId()}, 'label' , 'hidden' )}" ></th:block>
+                 <!--
+             <label th:text = "${'id:'+item.getId()}"></label>
+             -->
+             </div>
+
+             <div>
+             <th:block  th:replace="~{dict/fragments :: edit_text_input( 'name', ${item.getName()}, 'nazwa' , 'text' )}" ></th:block>
+            </div>
+
+            <div>
+             <th:block  th:replace="~{dict/fragments :: edit_text_input( 'description', ${item.getDescription()}, 'opis' , 'text' )}" ></th:block>
+            </div>
+
+                <th:block  th:each="method : ${getFields}">
+                    <div>
+                    <th:block  th:replace="~{dict/fragments :: edit_text_input( ${method.key}, ${method.value.invoke(item)}, ${method.key} , 'text' )}" ></th:block>
+                    </div>
+                </th:block>
+
+                <th:block  th:each="combo : ${combos}">
+                    <div>
+                        <th:block  th:replace="~{dict/fragments :: select( ${combo.getName()},  ${combo.getSelectedValues()} , ${combo.getLabel()} , ${combo.getElements()} )}" ></th:block>
+                    </div>
+                </th:block>
+
+
+            <div>
+            <button type="submit"> Zapisz </button>
+            </div>
+            </form>
+        </th:block>
+        <!-- /edit form -->
+
+
+        <!-- fragment text input / hidden -->
+        <th:block th:fragment="edit_text_input( fieldName,  value , label , type )">
+            <label th:if="${type}!='hidden'" th:text="${label}"></label>
+            <input th:type="${type}" th:name="${fieldName}" th:id="${fieldName}" th:value="${value}"/>
+        </th:block>
+        <!-- fragment -->
+
+
+        <!-- fragment select -->
+        <th:block th:fragment="select( fieldName,  value , label , map )">
+            <label th:text="${label}"></label>
+              <select th:id="${fieldName}" th:name="${fieldName}">
+                <th:block th:each="key : ${map.keySet()}">
+                    <option th:value="${key}" th:text="${map.get(key)}"   th:selected="${value}==${key}" ></option>
+                </th:block>
+            </select>
+        </th:block>
+
+</div>
+</body>
+</html>

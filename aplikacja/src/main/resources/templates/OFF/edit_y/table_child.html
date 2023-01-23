@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      th:replace="~{fragments/layout :: layout (~{::body}  )}">
+
+
+<body>
+<div>
+
+
+
+    <div  th:fragment="table_child()">
+
+        <table th_if="${table_family!=null and !table_family.isEmpty() }">
+            <tbody>
+
+
+            <tr class="one">
+                <th style="width:120px;"></th>
+                <th colspan="2" style="text-align: left;"> &nbsp; </th>
+                <th style="width:120px;"></th>
+            </tr>
+
+
+            <tr class="two" >
+                <th colspan="4" th:text="${codeId}">&nbsp;</th>
+            </tr>
+
+
+
+
+
+        <tr th:each="child : ${table_family}">
+            <td></td>
+            <td th:text=" ${child.childrenCode} "></td>
+            <td><a th:href="@{/edit/table_child/delete/} + ${child.parent_id+'/'+child.children_id}" style="display: block;"> [ usuń ] </a></td>
+            <td></td>
+        </tr>
+
+
+    <tr>
+        <form action="@{'/edit/table_child'}" th:action="@{'/edit/table_child'}"  method="POST" enctype="multipart/form-data">
+        <td>  <input type="hidden" id="codeId" name="codeId" th:value="${codeId}"> </td>
+        <td>
+            <input type="text" id="codeString" name="codeString" style="width: 100%; display: block;" onkeypress="findCodeIdByStringLIKE( this );" >
+        </td><td>
+            <select type="text" id="childrenId" name="childrenId" style="width: 100%; display: block;"></select>
+        </td>
+        <td>
+            <input class="submit" type="submit" value="dodaj">
+        </td>
+
+        </form>
+    </tr>
+
+
+    </tbody>
+    </table>
+    </div>
+
+
+</div>
+</body>
+
+
+
+
+//[ChildrenInline{=2085, childrenId=2114, itemOrder=29}]
+<h2>/edit/table_child/add/{parentId}/{childrenId}/{itemOrder}</h2>
+<h2>/edit/table_child/delete/{parentId}/{childrenId}</h2>
+
+
+
+
+
+
+
+
+<nobody>
+    <p>
+        NOBODY NOBODY NOBODY NOBODY NOBODY NOBODY NOBODY NOBODY NOBODY NOBODY NOBODY NOBODY NOBODY NOBODY NOBODY
+
+        ${'__imagesData.getComment1()__'}
+    </p>
+
+
+    <input type="text" th:name="${'.imagesData.comment1.'+codeId+'.'+session.langId+'.'+session.issueId+'.'}"
+           th:id ="${'.imagesData.comment1.'+codeId+'.'+session.langId+'.'+session.issueId+'.'}"
+           th:value="${imagesData.getComment1()}">
+
+
+    <p>
+
+
+
+
+    <p th:text="${'session.langId: '+langId}"></p>
+    <p th:text="${'session.issueId: '+issueId}"></p>
+
+
+
+    /*
+
+        th:field="*{__${myVar}__}"
+
+        @Table(name = "ImagesData")
+
+        @Column(name = "codeId")
+        @Column(name = "comment1")
+        @Column(name = "comment2")
+        @Column(name = "extraImages")
+        @Column(name = "icons")
+        @Column(name = "isNew")
+
+        */
+
+    </p>
+
+
+
+</nobody>
+
+
+</html>

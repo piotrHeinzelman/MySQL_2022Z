@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<!-- display icons https://icons8.com/icon/set/popular/material-two-tone -->
+
+
+<body>
+<div>
+
+
+</div>
+
+<!-- /fragment select -->
+
+</div></body>
+
+<body>
+</div>
+
+
+
+
+
+
+
+<div>
+    <!-- COMBO langId  -->
+    <th:block th:fragment="comboLangId( langs )">
+        <label th:text="${'język'}"></label>
+        <select th:id="${'langId'}" th:name="${'langId'}">
+            <th:block th:each="la : ${langs}">
+                <option th:value="${la.getId()}" th:text="${la.getName()}"/>
+            </th:block>
+        </select>
+    </th:block>
+    <!-- / COMBO langId  -->
+</div>
+
+
+
+
+<div>
+    <!-- COMBO issueId  -->
+    <th:block th:fragment="comboIssueId( issues )">
+        <label >wydanie</label>
+        <select id="issueId" th:name="issueId">
+            <th:block th:each="iss : ${issues}">
+                <option th:value="${iss.getId()}" th:text="${iss.getName()}"/>
+            </th:block>
+        </select>
+    </th:block>
+    <!-- / COMBO langId  -->
+</div>
+
+
+
+<div>
+    <!-- / INPUT UPLOAD FILE  -->
+    <th:block th:fragment="inputUploadFile()">
+        <label>plik</label>
+        <input type="file"  name="uploadedFile" id="uploadedFile">
+    </th:block>
+    <!-- / INPUT UPLOAD FILE  -->
+</div>
+
+
+<div>
+    <!-- INPUT submit  -->
+    <th:block th:fragment="inputSubmit()">
+        <label></label>
+        <input class="submit" type="submit" value="dodaj">
+    </th:block>
+    <!-- /INPUT submit  -->
+</div>
+
+
+
+
+</div>
+</body>
+</html>

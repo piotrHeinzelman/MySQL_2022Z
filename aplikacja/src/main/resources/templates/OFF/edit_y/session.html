@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+
+
+
+<div  th:fragment="lang">
+</div>
+
+<div class="session">
+<table>
+    <tbody>
+        <tr>
+
+            <th style="width: 25%"></th>
+            <th> <label>Język: </label> </th>
+            <th>
+                <select id="langId" name="langId">
+                    <th:block th:each="la : ${langs}">
+                        <option th:if="${session.langId==la.getLangId()}" th:value="${la.getLangId()}" th:text="${la.getLangCode()}" selected></option>
+                        <option th:unless="${session.langId==la.getLangId()}" th:value="${la.getLangId()}" th:text="${la.getLangCode()}"></option>
+                    </th:block>
+                </select>
+            </th>
+
+            <th> <label>Wydanie: </label> </th>
+            <th>
+                <select id="issueId" name="issueId">
+                    <th:block th:each="issue : ${issues}">
+                        <option th:if="${session.issueId==issue.getIssueId()}" th:value="${issue.getIssueId()}" th:text="${issue.getIssueName()}" selected></option>
+                        <option th:unless="${session.issueId==issue.getIssueId()}" th:value="${issue.getIssueId()}" th:text="${issue.getIssueName()}"></option>
+                    </th:block>
+                </select>
+            </th>
+            <th  style="width: 25%"></th>
+        </tr>
+
+    </tbody>
+</table>
+</div>
+
+</div>
+
+
+
+
+
+</html>
+

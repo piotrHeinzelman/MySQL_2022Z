@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}  )}">
+
+
+<body>
+<div>
+
+<form action="@{'/edit/item'}" th:action="@{'/edit/item'}"  method="POST" enctype="multipart/form-data">
+    <div class="editform">
+
+        <th:block th:include="~{edit/names  :: names()}"   th_include="~{edit/names  :: names()}" />
+        <th_block th_if="${langId!=1}"><th_block th_include="~{edit/names  :: names(  'namesPL' )}" /></th_block>
+
+       <th:block th:if="${prices!=null}"  th:include="~{edit/prices :: prices() }" />
+       <th:block th:if="${imagesData!=null}" th:include="~{edit/imagesdata  :: imagesData() }" />
+
+        <th:block th:if="${table_family!=null}" th:include="~{edit/table_child  :: table_child() }" />
+
+    <input class="submit" type="submit" value="dodaj">
+    </div>
+
+</form>
+
+</div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

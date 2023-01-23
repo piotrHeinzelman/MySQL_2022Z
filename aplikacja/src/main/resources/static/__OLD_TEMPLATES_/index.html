@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      th:replace="~{fragments/layout :: layout (~{::body} )}">
+<body>
+
+<div>
+    <br/><br/><br/>
+    <a th:href="@{/issue/add}"    class="btn-large waves-effect waves-light blue">1. dodaj Wydanie </a><br/><br/>
+
+    <br/><br/><br/>
+    <a th:href="@{/addXLS/price}"    class="btn-large waves-effect waves-light blue">2. dodaj Listę produktów ( + numer strony w wersji PL )<br/></a>   <a th:href="@{/xls/excela.xls}"><img th:src="@{/xls/excela.jpg}" ></a>
+
+    <br/><br/><br/>
+    <a th:href="@{/addXLS/name}"    class="btn-large waves-effect waves-light blue">3. Nazwy i opisy ( +Relacje dla wersji PL ). <br/></a>     <a th:href="@{/xls/excelb.xls}"><img th:src="@{/xls/excelb.jpg}" ></a>
+
+    <br/><br/><br/>
+    <a th:href="@{/addXLS/ean}" class="btn-large waves-effect waves-light blue">4. ewentualnie dodaj EAN do kodu <br/></a>
+
+    <a th:href="@{/xls/exceld.xls}">
+        <img th:src="@{/xls/exceld.jpg}" >
+    </a>
+
+    <p>
+        Info: przy wieloarkuszowych plikach XLS nazwa arkusza "PL", "CZ" określa język.<br/>
+         &nbsp; &nbsp; przy jednoarkuszowych plikach XLS język jest określany przez wybór z combo przy przesyłaniu plików na serwer.
+    </p>
+
+
+</div>
+
+
+</body>
+
+<nobody>
+
+
+
+
+<br/><br/>
+spring.datasource.driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver<br/>
+spring.datasource.url=jdbc:sqlserver://DESKTOP-M13S9VK;databaseName=dedra<br/>
+spring.datasource.username=dedra<br/>
+spring.datasource.password=dedra12345<br/>
+
+<h2>%appdata%/../../.indesignConfig30</h2>
+<code>
+    serverAddr=127.0.0.1</br>
+    serverPort=8080</br>
+    imgPath=C:\temp\imgs</br>
+    libFile=C:\_Dedra_\dedraServer\src\main\JSXandLIB\modules30\dataCS6.indl</br>
+    masterIndd=C:\_Dedra_\dedraServer\src\main\JSXandLIB\modules30\emptyCS6.indd</br>
+</code>
+
+<h2>RUN.JSX 3^D</h2>
+<code>
+
+    #target indesign<br/>
+    #targetengine Bridge<br/>
+    app.doScript ( "@JSXBIN@ES@2.0@MyBbyBn0AZgFbyBn0ABOGbyHn0ACJHnAEXzFjDjMjPjTjFBfVzHjQjBjMjFjUjUjFCfyBnfJyHnASCyBnbffACzChBhdDVCfyBjzJjVjOjEjFjGjJjOjFjEEfnnnABnzBjFFnnJKnASCyBEjzGiXjJjOjEjPjXGfRDFeHjQjBjMjFjUjUjFFeDiTiXiYjEfftnftJLnABXzKjSjFjTjJjajFjBjCjMjFHfVCfyBnctfJMnABXzJjQjBjSjFjOjUiBjQjQIfVCfyBjzDjBjQjQJfnfJNnABXzKjMjPjBjEiCjJjOjBjSjZKfVCfyBNyBnAMNn0DzALCNnfJOnABXzGjDjPjOjGjJjHMfVCfyBNyBnAMOn0DLCOnfJPnABXzOjMjPjBjEiJjTjTjVjFjTiMjJjTjUNfVCfyBNyBnAMPn0DLCPnfJQnABXzMjMjPjBjEiMjBjOjHiMjJjTjUOfVCfyBNyBnAMQn0DLCQnfJRnABXzDjMjPjHPfVCfyBNyBnAMRn0DLCRnfJSnABXzKjHjFjUiJjTjTjVjFiJjEQfVCfyBNyBnAMSn0DLCSnfJTnABXzJjHjFjUiMjBjOjHiJjERfVCfyBNyBnAMTn0DLCTnfJUnABXzLjHjFjUiMjBjOjHiDjPjEjFSfVCfyBNyBnAMUn0DLCUnfJVnABXzPjHjFjUiMjBjOjHiDjVjSjSjFjOjDjZTfVCfyBNyBnAMVn0DLCVnfJWnABXzSjHjFjUiFjNjQjUjZiJjOjEjEiBjTiDjPjQjZUfVCfyBNyBnAMWn0DLCWnfJXnABXzGjHjFjUiMjJjCVfVCfyBNyBnAMXn0DLCXnfJYnABXzPjMjPjBjEiQjSjPjEjVjDjUiMjJjTjUWfVCfyBNyBnAMYn0DLCYnfJZnABXNfVCfyBNyBnAMZn0DLCZnfJganABXzPjTjFjOjEiIjFjBjEjFjSiUjPiHiFiUXfVCfyBNyBnAMgan0DLCganfJgbnABXzDjHjFjUYfXMfVCfyBNyBnAMgbn0DLCgbnfJhLnASzMiDjPjOjGjJjHiBjOjEiMjPjHZyBne2jcFiAiKiTiYiCiJiOiAiFiTiAhShOhQiAiNjZiCjCjZiCjOhQiBiCiKiFjOiBiCiYjaiLjKiNjKiQjKiCjKiFjJiDjKiKjKiPjKiCjKiTjKiaiCjGjKjaiIjKiRjKiCjKiNjKiGjKiVjKiVjKiGiDjGiOjZiCjOiBiNiFjCjZiCjOhQiBiYiKiIjOiBiTjaiJjKiHjKiKjKiNjKiGjJiRjKiCjKiVjKiJiEiBjOjFiUjKjFjIiQjIiPjKiKjKiPjKiFjKiGjKiUjKiKjKiIjKiPjJiEjKiQjKiPjKiHjKiKjKiIjIiUjIiRjGjUiKiJjOiBiTjaiLjKiUjKiGjKiTjKiXjKiGjKiTjJiCjKiFjKiFjKiTiFiCjOjFiBjGjUiKiKjOiBiTjaiLjKiUjKiGjKiTjKiXjKiGjKiTjJiRjKiQjKiTjKiViGiDjOjFiBjGjUiKiMjOiBiCjKjaiFjKiHjKiKjKiNjKiGiHjGjOjCjGiKiNjOiBiCjKiHjGiFjKjaiFjJiHjKiKjKiNjKiGiIjGiSiCiWiEjGiBjGjUjOjGiPiOiaiOjOiBjOiBjIjaiCjIiCiJiYjaiHjKiGjKiZjKiKjKiUjKiVjKiUiKjGjKiHjGjOiKiQjOiBiFiYjaiFjKiQjKiRjKiGjKiPiLjGjKiHjGiSiCiGjFiCjJiTjGjGjMiRjCiSjOhQiBiFiKiSjOiBiCjKjaiFjKiNjKiKjKiPjKiGiMjGiFiYjaiHjKiTjKiGjKiCjKiFjKiNjKiPiNjGjKiHjGjOjGjOjGiKiTjOiBiCjKiMjGiFiYjaiGjKiUjKiRjKiNjKiKjKiViOjGjKiMjGiSiCiGjFiCjIjEjGjGjOjGiPiUiKiUjOiBiTiFiCiYjaiCjIiSiPjGjKiMjGjOjGjGiBiDjaiDjIjEjIjEiQiYjaiCjIiRiRjGjKiMjGjOjOjFiLjKiUjKiGjKiTjKiXjKiGjKiTjJiCjKiFjKiFjKiTjOiPiViKiVjOiBiTiGiDiYiPjGjKiMjGjOjGjGiBiDiQiYiRjGjKiMjGjOjOjFiLjKiUjKiGjKiTjKiXjKiGjKiTjJiRjKiQjKiTjKiVjOiBjIiJiYjaiEjKiGjKiQjKiHiSjGjKiHjGiKjHjBjOiBiCjKjaiFjKiEjKiQjKiPjKiPiTjGiFjKjaiHjJiUjKiQjKiEjKiMjKiGjKiViUjGjOjUjOjGiKjHjCjOiBiTjaiGjKiTjKiGjKiRjKiNjKiaiViEjOjFiBjGjUiKjHjDjOiBiCjKjaiEjJiGjJiQjJiNiWjGjOjFiDiOiLjGiKjHjEjOiBiFiYiLjGjKiTjGiSiEiDjaiCjIiMiXiDiXiWiFjGiCjOjOjFiCjIjBiWiGjGiDjOjOiGjFiGjJiWjJiVjJiHjIiOjIiZiGjDjUjGjGiKjHjFjOiBiTiViEjOjFiBjGjGiKjHjGjOiBiCjKjaiHjKiJjKiGjKiCjKiFjKiGjKiTiYjGiDiXiDiXjOiWjaiFjKiPjKiCjKiOjKiGiZjGiFjFiLjJiIjJiGjJiVjIiBjIiQjKiEjKiQjKiFjKiGjIiQjOjKiWjGjOjOjOjGiKjIiBjOiBiCjKiYjGiDiXjOiDiXiDiXjOiWiFjGiCjFiHjJiJjKiQjKiUjKiVjIjBjIiBjOjKiWjGjOjOjOjOjOjUiKjIiCjOiBiCjKiYjGiDiXjOiDiXjOjKiWjGjFiSjJiEjKiQjKiPjKiPjKiGjKiEjKiVjKiKjKiQjKiPjIjBjIiBjKiEjKiNjKiQjKiUjKiGjOjOjOjOjUiKjIiDjOiBiCjKiYjGiDiXjOiDiXjOjKiWjGjFiKjJiNjKiGjKiPjKiIjKiVjKiJjIjBjIiBjIiRjOjOjOjOjUiKjIiEjOiBiCjKiYjGiDiXjOiDiXjKiWjGjKiWjGjOjOjOjOjOjUiKjIiFjOiBiFiYjaiGjKiYjKiTjKiKjKiVjKiGiajGjKiTjGiSiCjKiYjGjGjGjMjIiHjCjZjIiHjOhQiBiCiKjIiHjOiBiTiViEiDiXjOiFiYjaiFjKiTjKiGjKiCjKiFjHjBjGjKiTjGjOjGjOjOjOjUjGiBjIiJiYiSjGjKiTjGiKjIiIjOiBiFiYjaiGjKiEjKiNjKiQjKiUjKiGjHjCjGjKiTjGjOjGiKjIiJjOiBiCjKiTjGjOjCjGiPjIiLjCjZjIiLjOhQiBiCiKjIiLjOiBiFiYjaiJjKiFjKiQjJiUjKiEjKiTjKiKjKiRjKiVjHjDjGjKjaiEjKiCjKiRjKiRjHjEjGiSiFiWiVjGiEiYjaiLjKiLjKiCjKiXjKiCjKiUjKiEjKiTjKiKjKiRjKiVjHjFjGjKjaiPjJiUjKiEjKiTjKiKjKiRjKiVjJiNjKiCjKiPjKiIjKiWjKiCjKiIjKiGjHjGjGiBjOiYjaiTjJiHjJiCjJiUjJiVjJjGjJiGjJiPjJiVjJiKjJiTjJiGjJjGjJiUjJiEjJiTjJiKjJiRjJiVjIiBjGjKjaiKjJiWjKiPjKiFjKiQjJiOjKiQjKiFjKiGjKiUjIiCjGjGjGiBiDiQiFiYjaiHjKiUjKiGjKiCjKiTjKiEjKiJjIiDjGiWiVjGiEiSiCiGjFiQjJiBjJiLjJiUjJiZjJiDjJiKjJiPjJiBjJiGjJiUjJiBjIiTjIiPjIiRjJiBjGjGjOjOjEiBjOiBiGiVhUiEhQiBjJiBiZhUhQiCjIiBiFhUiChQiBjJiBiGhUiDhQiBjJiBiEhUhQiCjJiBiCiFiBjaiBjIiEiDjIiMjOjGhQiEjIiEiCjZiCftJhMnAEXzIjEjPiTjDjSjJjQjUgafjJfREVZfyBXzKjKjBjWjBjTjDjSjJjQjUgbfjzOiTjDjSjJjQjUiMjBjOjHjVjBjHjFgcfAnXzSiGiBiTiUifiFiOiUiJiSiFifiTiDiSiJiQiUgdfjzJiVjOjEjPiNjPjEjFjTgefffghNbyBn0AFJhOnAEXKfVCfyBRBFeChThRffJhPnAEXKfVCfyBRBFeChThSffJhQnAEXKfVCfyBRBFeChThTffJhRnAEXKfVCfyBRBFeChThUffJhSnAEXKfVCfyBRBFeChThVffABnFnbyBn0ABJhTnAEjzFjBjMjFjSjUgffRBjFfffJhUnAEXzEjTjIjPjXhAfVCfyBnfJhWnABXzHjPjOiDjMjPjTjFhBfVCfyBNyBnAMhWbyBn0ACJhWnAEXzEjIjJjEjFhCfjCfnfJyhWnABjCfjEfnf0DLChWnfgyhXbyBn0ABJhXnAEXQfVCfyBnfABnFnnACC40BiAZ4B0AiAACALByB", ScriptLanguage.javascript );
+</code>
+
+
+</nobody>
+</html>

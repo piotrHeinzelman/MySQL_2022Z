@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body} )}">
+
+
+<body>
+<div>
+
+
+    <table>
+        <tr class="one">
+            <th></th>
+            <th colspan="5"> J Ę Z Y K </th>
+            <th></th>
+        </tr>
+
+        <tr class="two">
+                <form action="@{'/lang/add'}" th:action="@{'/lang/add'}" th:object="${langAddForm}" method="post" >
+                    <th></th>
+                    <th>
+                        <input type="text"  name="langCode" id="langCode" placeholder="kod języka" style="width: 90px;" />
+                    </th>
+                    <th>
+                        <input type="text"  name="currency" id="currency" placeholder="waluta: PLN, $ " style="width: 90px;" />
+                    </th>
+                    <th>
+                        <input type="text"  name="tableHeader" id="tableHeader" placeholder="nagłowek tabeli: nr. kat.|header|cena|promocja"  style="width: 100%;"/>
+                    </th>
+                    <th>
+                        <input type="text"  name="complementaryHeader" id="complementaryHeader" placeholder="Produkty komplementarne:" style="width: 100%;" />
+                    </th>
+                    <th>
+                        <input type="text"  name="precisionString" id="precisionString" placeholder="precyzja" style="width: 90px;" />
+                    </th>
+
+                    <th  >
+                        <input class="submit" type="submit" value="dodaj" style="width: 140px;"/>
+                    </th>
+                </form>
+        </tr>
+
+
+        <tr class="three">
+            <th></th>
+            <th>kod</th>
+            <th>waluta</th>
+            <th>tabela</th>
+            <th>komplementarne</th>
+            <th>.00</th>
+            <th></th>
+        </tr>
+
+
+        <tr th:each="lang : ${langs}">
+            <td th:text="${lang.langId}"></td>
+             <td th:issueId="${lang.langId}"  th:text="${lang.langCode}"  ></td>
+            <td th:text="${lang.currency}"  ></td>
+            <td th:text="${lang.tableHeader}"  ></td>
+            <td th:text="${lang.complementaryHeader}"  ></td>
+            <td th:text="${lang.precision}"  ></td>
+            <td></td>
+        </tr>
+
+    </table>
+
+</div>
+</body>
+</html>

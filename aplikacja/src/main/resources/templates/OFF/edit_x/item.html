@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}  )}">
+
+
+<body>
+<div>
+
+<form action="@{'/edit/item'}" th:action="@{'/edit/item'}"  method="POST" enctype="multipart/form-data">
+    <div class="editform">
+
+        <table  class="prices">
+            <tbody>
+                <tr class="lang">
+                    <th colspan="2" th:classappend="${langId==1}?selected_lang"><a th:href="@{'/edit/item/'+${codeId}+'/1'}">PL</a></th>
+                    <th colspan="2" th:classappend="${langId==2}?selected_lang"><a th:href="@{'/edit/item/'+${codeId}+'/2'}">CZ</a></th>
+                    <th colspan="2" th:classappend="${langId==3}?selected_lang"><a th:href="@{'/edit/item/'+${codeId}+'/3'}">EN</a></th>
+                    <th colspan="2" th:classappend="${langId==4}?selected_lang"><a th:href="@{'/edit/item/'+${codeId}+'/4'}">HU</a></th>
+                    <th colspan="2" th:classappend="${langId==5}?selected_lang"><a th:href="@{'/edit/item/'+${codeId}+'/5'}">LT</a></th>
+                    <th colspan="2" th:classappend="${langId==6}?selected_lang"><a th:href="@{'/edit/item/'+${codeId}+'/6'}">RO</a></th>
+                    <th colspan="2" th:classappend="${langId==7}?selected_lang"><a th:href="@{'/edit/item/'+${codeId}+'/7'}">LV</a></th>
+                    <th colspan="2" th:classappend="${langId==8}?selected_lang"><a th:href="@{'/edit/item/'+${codeId}+'/8'}">SK</a></th>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+        <table>
+            <tbody>
+
+
+
+
+
+            <tr class="one">
+                <th style="width:120px;"></th>
+                <th colspan="2" style="text-align: left;"><th:block th:include="~{fragments/editor :: as_text         ( 'names', 'name' ,  'enames.getName()' ,  'nazwa'   )}" /></th>
+                <th style="width:120px;"><input class="submit" type="submit" value="zapisz" ></th>
+            </tr>
+
+
+            <tr class="two" >
+                <th><th:block th:include="~{fragments/editor :: as_text         ( 'names', 'name' ,  'codeString' ,  'kod'   )}" /></th>
+                <th th:attr="colspan=${namesPL==null}? '3':'1'" style="text-align: left;"><th:block th:include="~{fragments/editor :: as_text         ( 'names', 'description' ,  'names.getDescription()' ,  'opis'   )}" /></th>
+                <th th:if="${namesPL!=null}" colspan="2"><th:block  th:include="~{fragments/editor :: as_text ( 'namesPL', 'description' ,  'namesPL.getDescription()' ,  'inddDescription'  )}" /></th>
+            </tr>
+
+
+
+
+
+            <tr>
+                <td>nazwa:</td>
+                <td th:attr="colspan=${namesPL==null}? '3':'1'"><th:block th:include="~{fragments/editor :: edit_text_input ( 'names', 'inddName' ,  'names.getInddName()' ,  'inddName'  )}" /></td>
+                <td colspan="2"  th:if="${namesPL!=null}"><th:block th:include="~{fragments/editor :: as_text ( 'namesPL', 'inddName' ,  'namesPL.getInddName()' ,  'inddName'  )}" /></td>
+            </tr>
+
+
+            <tr>
+                <td>opis:</td>
+                <td  th:attr="colspan=${namesPL==null}? '3':'1'"><th:block th:include="~{fragments/editor :: edit_text_area ( 'names', 'inddDescription' ,  'names.getInddDescription()' ,  'inddDescription'  )}" /></td>
+                <td colspan="2" th:if="${namesPL!=null}"><th:block  th:include="~{fragments/editor :: as_text ( 'namesPL', 'inddDescription' ,  'names.getInddDescription()' ,  'inddDescription'  )}" /></td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+        <table th:if="${table_family!=null}" style="margin-top: -20px;"  >
+            <tbody>
+
+            <tr>
+                <td th:utext="${codeString}"></td>
+                <td><th:block th:include="~{fragments/editor :: edit_text_input ( 'names', 'nameInTable' ,  'names.getNameInTable()' ,  'nameInTable'  )}" /></td>
+                <td> <th:block th:include="~{fragments/editor :: edit_text_input ( 'names', 'tableHeader' ,  'names.getTableHeader()' ,  'tableHeader'  )}" /></td>
+                <td></td>
+            </tr>
+
+
+
+
+
+            <tr th:each="child: ${table_family}">
+                    <td th:utext="${child.childrenCode}"></td>
+                    <td><th:block  th:include="~{fragments/editor :: edit_text_input_otherCodeId ( 'names', 'indd_name' ,  'child.name_in_table' ,  'name_in_table' , ${child.children_id}  )}" /></td>
+                    <td th:if="${langId!=1}"> <span th:utext="${child.name_in_tablePL}"></span> </td>
+                    <td th:utext="${child.name}"></td>
+                    <th:block th:if="${langId==1}">
+                        <td th:utext="${child.description}"></td>
+                    </th:block>
+            </tr>
+
+            <tr><td colspan="4"><a th:href="@{'/edit/table_child/'+${codeId}+'/1'}" style="float: right; dislay: block;">[ edit child ]</a></td></tr>
+
+            </tbody>
+        </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+</form>
+
+</div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<th:block th:include="~{edit/names  :: names1()}"  />
+
+
+<tr>
+    <th:block th_if="${langId!=1}"><th:block th_include="~{edit/names  :: names(  'namesPL' )}" /></th:block>
+    <th:block th:if="${prices!=null}"  th:include="~{edit/prices :: prices() }" />
+    <th:block th:if="${table_family!=null}" th:include="~{edit/table_child  :: table_child() }" />
+</tr>
+
+
+
+
+
+
+<th:block th:include="~{fragments/editor :: edit_text_input ( 'names', 'nameInTable' ,  'names.getNameInTable()' ,  'nameInTable'  )}" />
+<th:block th:include="~{fragments/editor :: edit_text_input ( 'names', 'tableHeader' ,  'names.getTableHeader()' ,  'tableHeader'  )}" />
+<th:block th_include="~{fragments/editor :: edit_text_input ( 'names', 'name2' ,  'names.getName2()' ,  'name 2'  )}" />
+
+<th:block th:include="~{fragments/editor :: as_text ( 'names', 'description' ,  'names.getDescription()' ,  'description'  )}" />
+<th:block th:include="~{fragments/editor :: edit_text_input ( 'names', 'descriptionInline' ,  'names.getDescriptionInline()' ,  'descriptionInline'  )}" />
+<th:block th_include="~{fragments/editor :: edit_text_input ( 'names', 'descriptonExtra' ,  'names.getDescriptonExtra()' ,  'descriptonExtra'  )}" />
+<th:block th_include="~{fragments/editor :: edit_text_input ( 'names', 'description2' ,  'names.getDescription2()' ,  'description2 '  )}" />
+
+
+
+
+
+
+</html>

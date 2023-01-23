@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}  )}">
+
+
+<body>
+<div>
+
+<form action="@{'/edit/indd_item'}" th:action="@{'/edit/indd_item'}"  method="POST" enctype="multipart/form-data">
+
+
+    <p th:text="${_1}"></p>
+    <p th:text="${_2}"></p>
+    <p th:text="${_3}"></p>
+
+    <p th:text="${indd_extraImages}"></p>
+    <p th:text="${indd_comment}"></p>
+    <p th:text="${e_category}"></p>
+    <p th:text="${e_subcategory}"></p>
+
+    <p th:text="${_3}"></p>
+
+
+
+</form>
+
+</div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<th:block th:include="~{edit/names  :: names1()}"  />
+
+
+<tr>
+    <th:block th_if="${langId!=1}"><th:block th_include="~{edit/names  :: names(  'namesPL' )}" /></th:block>
+    <th:block th:if="${prices!=null}"  th:include="~{edit/prices :: prices() }" />
+    <th:block th:if="${table_family!=null}" th:include="~{edit/table_child  :: table_child() }" />
+</tr>
+
+
+
+
+
+
+<th:block th:include="~{fragments/editor :: edit_text_input ( 'names', 'nameInTable' ,  'names.getNameInTable()' ,  'nameInTable'  )}" />
+<th:block th:include="~{fragments/editor :: edit_text_input ( 'names', 'tableHeader' ,  'names.getTableHeader()' ,  'tableHeader'  )}" />
+<th:block th_include="~{fragments/editor :: edit_text_input ( 'names', 'name2' ,  'names.getName2()' ,  'name 2'  )}" />
+
+<th:block th:include="~{fragments/editor :: as_text ( 'names', 'description' ,  'names.getDescription()' ,  'description'  )}" />
+<th:block th:include="~{fragments/editor :: edit_text_input ( 'names', 'descriptionInline' ,  'names.getDescriptionInline()' ,  'descriptionInline'  )}" />
+<th:block th_include="~{fragments/editor :: edit_text_input ( 'names', 'descriptonExtra' ,  'names.getDescriptonExtra()' ,  'descriptonExtra'  )}" />
+<th:block th_include="~{fragments/editor :: edit_text_input ( 'names', 'description2' ,  'names.getDescription2()' ,  'description2 '  )}" />
+
+
+
+
+
+
+</html>
