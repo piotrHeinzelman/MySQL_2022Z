@@ -20,7 +20,8 @@ public class Category extends AbsSimpleDict {
     private Long ExactId;
 
     @Column (name = "exact_name")
-    private Long exactName;
+    private String exactName;
+
 
     public Category() {}
     public Category( String name ) { super(name); }

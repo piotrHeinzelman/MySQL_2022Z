@@ -33,6 +33,9 @@ public class Code implements Serializable {
     @Column (name = "exact_id")
     private Long ExactId;
 
+    @Column (name = "category")
+    private Long category;
+
     @Column(name="active")
     private boolean active;
 
