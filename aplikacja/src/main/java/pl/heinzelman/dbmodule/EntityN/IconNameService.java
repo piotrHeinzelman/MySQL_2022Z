@@ -1,14 +1,15 @@
-package pl.heinzelman.dbmodule.newDictClass;
+package pl.heinzelman.dbmodule.EntityN;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.heinzelman.dbmodule.newDictClass.SimpleEntService;
 
 @Service
-public class IconGroupService extends SimpleEntService<IconGroup, IconGroupRepo> {
+public class IconNameService extends LangEntService<IconName, IconNameRepo> {
 
-    @Autowired private IconGroupRepo repo;
+    @Autowired private IconNameRepo repo;
 
-    public IconGroupService( IconGroupRepo repo ) { super(repo); }
+    public IconNameService( IconNameRepo repo ) { super(repo); }
 }
 
 

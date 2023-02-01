@@ -26,13 +26,22 @@ public class LangEnt implements Serializable {
     protected Long id_lang;
 
     @Column ( name = "lang_name" )
-    protected Long lang_name;
+    protected String lang_name;
 
     @Transient protected  Map<String, Method> _getters;
     @Transient protected  Map<String, Method> _setters;
 
     public LangEnt() {}
+    public LangEnt(Long fk_id, Long id_lang) {
+        this.fk_id = fk_id;
+        this.id_lang = id_lang;
+    }
 
+    public LangEnt(Long fk_id, Long id_lang, String lang_name) {
+        this.fk_id = fk_id;
+        this.id_lang = id_lang;
+        this.lang_name = lang_name;
+    }
 
     public  Map<String, Method> gFields() {
         if ( _getters == null ) {

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class StringService extends SimpleEntService<Strings, StringRepo> {
 
-    @Autowired StringRepo repo;
+    @Autowired private StringRepo repo;
     public StringService(StringRepo repo ) { super(repo); }
 
 }

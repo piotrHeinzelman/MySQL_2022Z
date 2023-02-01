@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class LayoutTargetService extends SimpleEntService<LayoutTarget, LayoutTargetRepo> {
 
-    @Autowired LayoutTargetRepo repo;
+    @Autowired private LayoutTargetRepo repo;
 
     public LayoutTargetService(LayoutTargetRepo repo ) { super(repo); }
 }

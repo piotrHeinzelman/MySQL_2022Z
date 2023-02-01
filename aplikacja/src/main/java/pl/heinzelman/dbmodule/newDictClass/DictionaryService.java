@@ -6,9 +6,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class DictionaryService extends SimpleEntService<Dictionary, DictionaryRepo> {
 
-    @Autowired DictionaryRepo repo;
+    @Autowired private DictionaryRepo repo;
 
     public DictionaryService(DictionaryRepo repo ) { super(repo); }
+
+    public Dictionary addDictionary( String sys_name ){
+        return repo.save( new Dictionary( sys_name ));
+    }
+
 }
 
 
