@@ -28,8 +28,8 @@ public class SimpleEnt implements Serializable {
     @Transient protected  Map<String, Method> _setters;
 
     public SimpleEnt() {}
-    public SimpleEnt(String sysName) { this.setSysName(sysName); }
-    public void setSysName(String sysName) { if ( sysName !=null ) { this.sysName = sysName.trim(); }  this.sysName = sysName; }
+    public SimpleEnt( String sysName ) { this.setSysName( sysName ); }
+    public void setSysName(String sysName) { if ( sysName !=null ) { sysName = sysName.trim(); }  this.sysName = sysName; }
 
 
     public  Map<String, Method> gFields() {

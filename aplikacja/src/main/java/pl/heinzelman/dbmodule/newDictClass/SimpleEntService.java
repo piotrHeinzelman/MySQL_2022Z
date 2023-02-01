@@ -1,6 +1,7 @@
 package pl.heinzelman.dbmodule.newDictClass;
 
 import java.util.Optional;
+import java.util.Set;
 
 public abstract class SimpleEntService<T extends SimpleEnt, R extends SimpleEntRepo<T>>  {
 
@@ -20,7 +21,8 @@ public abstract class SimpleEntService<T extends SimpleEnt, R extends SimpleEntR
 
     public <S extends T> S save(S entity) { return repo.save( entity ); }
 
-    public Optional<T> findAllByName(String sysName) { return repo.findAllBySysName( sysName ); }
+    //public Optional<T> findAllByName(String sysName) { return repo.findAllBySysName( sysName ); }
+    public Set<T> findAllBySysName(String sysName) { return repo.findAllBySysName(sysName); }
 
     public <S extends T> Iterable<S> saveAll(Iterable<S> entities) { return repo.saveAll( entities ); }
      public Iterable<T> findAllById(Iterable<Long> longs) { return repo.findAllById( longs ); }

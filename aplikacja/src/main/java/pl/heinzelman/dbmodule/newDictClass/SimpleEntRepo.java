@@ -4,6 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
 import java.util.Optional;
+import java.util.Set;
 
 @NoRepositoryBean
 public interface SimpleEntRepo<T extends SimpleEnt> extends CrudRepository<T, Long> {
@@ -14,7 +15,8 @@ public interface SimpleEntRepo<T extends SimpleEnt> extends CrudRepository<T, Lo
 //            long countAllByActiveTrue();
 
 
-      Optional<T> findAllBySysName( String sysName );
+//      Optional<T> findAllBySysName( String sysName );
+      Set<T> findAllBySysName( String sysName );
 //    Optional<T> findAllByNameAndActiveTrue( String name );
 //    Optional<T> findAllByIdAndActiveTrue( Long aLong );
 
