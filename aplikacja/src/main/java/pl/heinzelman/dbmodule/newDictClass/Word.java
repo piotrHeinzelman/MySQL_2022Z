@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -19,7 +16,32 @@ import javax.persistence.Table;
 
 public class Word extends SimpleEnt {
 
+
+    @Column( name = "id_dictionary" )
+    protected Long id_dictionary; // -> FK par_dictionary.id
+
     public Word() { super(); }
     public Word( String sysName ) { super(sysName); }
 
 }
+/*
+@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+@PrimaryKeyJoinColumn
+
+ */
+
+/*
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    private Address address;
+ */
+
+/*
+    @OneToOne(mappedBy = "address")
+ */
+
+/*
+
+
+
+ */

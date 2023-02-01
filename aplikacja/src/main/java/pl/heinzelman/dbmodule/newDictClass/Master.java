@@ -17,9 +17,9 @@ import javax.persistence.Table;
 @Table(name = "par_masters")
 @Inheritance( strategy = InheritanceType.TABLE_PER_CLASS )
 
-public class Masters extends SimpleEnt {
+public class Master extends SimpleEnt {
 
-    public Masters() { super(); }
-    public Masters( String sysName ) { super(sysName); }
+    public Master() { super(); }
+    public Master(String sysName ) { super(sysName); }
 
 }
