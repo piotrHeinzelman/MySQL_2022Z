@@ -24,7 +24,7 @@ public abstract class AbstractDict implements Serializable {
     protected String name;
 
     @Lob
-    @Column ( name = "description")
+    @Column ( name = "description" , columnDefinition="NVARCHAR(max)")
     protected String description;
 
     @Column ( name = "active")

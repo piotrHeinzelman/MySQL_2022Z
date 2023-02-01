@@ -23,6 +23,11 @@ public class SimpleEnt implements Serializable {
     @Column ( name = "sys_name" )
     protected String sysName;
 
+    /*
+    @Lob
+    @Column ( name = "LONG" , columnDefinition="NVARCHAR(max)")
+    protected String LONG;
+    */
 
     @Transient protected  Map<String, Method> _getters;
     @Transient protected  Map<String, Method> _setters;
