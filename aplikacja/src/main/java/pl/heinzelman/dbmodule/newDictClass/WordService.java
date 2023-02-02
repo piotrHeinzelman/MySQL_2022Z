@@ -2,6 +2,7 @@ package pl.heinzelman.dbmodule.newDictClass;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.heinzelman.dbmodule.EntityN.WordName;
 import pl.heinzelman.dbmodule.EntityN.WordNameService;
 
 @Service
@@ -14,6 +15,12 @@ public class WordService extends SimpleEntService<Word, WordRepo> {
         super(repo);
         this.repo=repo;
         this.wordNameService = wordNameService;
+    }
+
+    public Word addWord( Long id_dictionary, String name_PL ){
+        Word w = repo.save( new Word( id_dictionary ) );
+        wordNameService.save( new WordName( w.getId(),  1L , name_PL ));
+        return w;
     }
 
     /*

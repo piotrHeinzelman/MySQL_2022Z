@@ -20,6 +20,6 @@ import javax.persistence.Table;
 public class Strings extends SimpleEnt {
 
     public Strings() { super(); }
-    public Strings(String sysName ) { super(sysName); }
+    public Strings( String sysName ) { super(sysName); }
 
 }

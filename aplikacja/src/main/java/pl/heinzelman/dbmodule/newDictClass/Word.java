@@ -22,7 +22,9 @@ public class Word extends SimpleEnt {
 
     public Word() { super(); }
     public Word( String sysName ) { super(sysName); }
-
+    public Word( Long id_dictionary ) {
+        this.id_dictionary = id_dictionary;
+    }
 }
 /*
 @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)

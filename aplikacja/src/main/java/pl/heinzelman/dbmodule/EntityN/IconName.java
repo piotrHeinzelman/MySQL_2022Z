@@ -15,8 +15,8 @@ import javax.persistence.Table;
 public class IconName extends LangEnt{
 
     public IconName() {}
-    public IconName(Long fk_id, Long id_lang, String lang_name) {
-        super(fk_id, id_lang, lang_name);
+    public IconName( Long fk_id, Long id_lang, String lang_name ) {
+        super( fk_id, id_lang, lang_name );
     }
 
 }

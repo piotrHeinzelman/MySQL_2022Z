@@ -52,22 +52,10 @@ public class Params {
     */
 
     public Params() {}
-
-    public Params( Long id_code, Long id_icon, Long id_unit, Double num_value ) {
+    public Params(Long id_code, Long id_icon) {
         this.id_code = id_code;
         this.id_icon = id_icon;
-        this.id_unit = id_unit;
-        this.num_value = num_value;
     }
-
-    public Params( Long id_code, Long id_icon, Long id_word ) {
-        this.id_code = id_code;
-        this.id_icon = id_icon;
-        this.id_word = id_word;
-    }
-
-
-
 
     @Transient protected Map<String, Method> _getters;
     @Transient protected  Map<String, Method> _setters;

@@ -13,7 +13,7 @@ public class UnitService implements UnitRepo {
 
     public UnitService(UnitRepo repo) { this.repo = repo; }
 
-    private Unit addUnit( String sysName, Long idMeasure, String suffix, Double multi ){
+    public Unit addUnit( String sysName, Long idMeasure, String suffix, Double multi ){
         Unit newUnit = new Unit( sysName, idMeasure, suffix, multi );
         return repo.save( newUnit );
     }
