@@ -1,7 +1,0 @@
-server ip: 192.168.56.10
-
-user: sa
-pass: otworz1okno!
-
-user: stud
-pass: zamknij1okno!
